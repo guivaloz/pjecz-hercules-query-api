@@ -1,5 +1,5 @@
 [project]
-name = "pjecz-hercules-api-key"
+name = "pjecz-hercules-query-api"
 version = "5.1.0"
 description = "API del Poder Judicial del Estado de Coahuila de Zaragoza. Solicitudes a informatica en pjecz.gob.mx."
 readme = "README.md"
@@ -39,7 +39,7 @@ dev = [
 ]
 
 [project.scripts]
-pjecz-hercules-api-key = "pjecz_hercules_api_key:main"
+pjecz-hercules-api-key = "pjecz_hercules_query_api:main"
 
 [build-system]
 requires = ["uv_build>=0.12.19,<0.13.0"]

@@ -22,7 +22,7 @@ El esquema de la base de datos lo define `pjecz-hercules-flask`. Este proyecto n
 
 **Dentro:**
 
-- Crear el modelo `BitacoraAPI` en `src/pjecz_hercules_api_key/models/bitacoras_apis.py`, idéntico al de `pjecz-hercules-flask/hercules/blueprints/bitacoras_apis/models.py`, y registrarlo en `models/__init__.py`.
+- Crear el modelo `BitacoraAPI` en `src/pjecz_hercules_query_api/models/bitacoras_apis.py`, idéntico al de `pjecz-hercules-flask/hercules/blueprints/bitacoras_apis/models.py`, y registrarlo en `models/__init__.py`.
 - Agregar a `Usuario` la columna `api_key_cuota_diaria` y el hijo `bitacoras_apis`.
 - Agregar `API_NOMBRE` y `API_KEY_CUOTA_DIARIA` a `config/setttings.py` y `.env.example`.
 - Agregar `api_key_cuota_diaria: int` a `UsuarioInDB` en `schemas/usuarios.py`.
@@ -126,7 +126,7 @@ Cada paso deja la API funcionando, siempre que el SQL ya esté aplicado en la BD
 ## Criterios de aceptación
 
 - [x] El SQL de esta spec está aplicado en la base de datos.
-- [x] Existe `src/pjecz_hercules_api_key/models/bitacoras_apis.py` y `BitacoraAPI` está en `models/__init__.py`.
+- [x] Existe `src/pjecz_hercules_query_api/models/bitacoras_apis.py` y `BitacoraAPI` está en `models/__init__.py`.
 - [x] `GET /estados` con api_key válida responde 200 y crea una fila con `usuario_id` correcto, `api_nombre = 'pjecz-hercules-api-key'`, `api_ruta = '/estados'`, `peticion = 'GET'`, `respuesta_exitosa = true` y `respuesta_mensaje = '200 OK'`.
 - [x] `GET /estados?clave=05` guarda `api_ruta = '/estados?clave=05'`.
 - [x] Una petición a un módulo sin permiso responde 403 y crea una fila con `respuesta_exitosa = false` y `respuesta_mensaje = '403 Forbidden'`.

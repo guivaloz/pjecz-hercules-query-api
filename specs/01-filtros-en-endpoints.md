@@ -11,7 +11,7 @@
 
 **Dentro:**
 
-- Crear `src/pjecz_hercules_api_key/core/validation.py` con las funciones de validación y normalización.
+- Crear `src/pjecz_hercules_query_api/core/validation.py` con las funciones de validación y normalización.
 - Agregar parámetros `Query` opcionales al endpoint `GET ""` de cada router listado en la tabla de filtros.
 - Filtros por campos propios de la tabla como texto parcial: `actor`, `apellido_paterno`, `apellido_materno`, `clave`, `demandado`, `descripcion`, `edificio`, `*_edificio`, `nombre`, `*_nombre`, `nombres`.
 - Filtros por campos propios de la tabla como texto completo: `expediente`.
@@ -155,7 +155,7 @@ Cada paso deja la API funcionando y se puede hacer commit de él por separado.
 
 ## Criterios de aceptación
 
-- [x] Existe `src/pjecz_hercules_api_key/core/validation.py` con `safe_string`, `safe_clave`, `safe_expediente` y `validate_fechas`.
+- [x] Existe `src/pjecz_hercules_query_api/core/validation.py` con `safe_string`, `safe_clave`, `safe_expediente` y `validate_fechas`.
 - [x] `safe_string("  José   Peña  Güémez ")` regresa `"JOSE PEÑA GÜEMEZ"`.
 - [x] Solo cambiaron archivos en `routers/` y el nuevo `core/validation.py` (`git diff --stat` lo confirma).
 - [x] Cada router de la tabla expone en `/docs` exactamente los parámetros listados, todos opcionales.

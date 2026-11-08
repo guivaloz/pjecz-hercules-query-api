@@ -17,7 +17,7 @@ En App Engine no hay archivo `.env` y no conviene poner contraseñas ni el `SALT
 
 **Dentro:**
 
-- Crear la clase `SecretManagerSettingsSource` (subclase de `pydantic_settings.PydanticBaseSettingsSource`) en `src/pjecz_hercules_api_key/config/setttings.py`.
+- Crear la clase `SecretManagerSettingsSource` (subclase de `pydantic_settings.PydanticBaseSettingsSource`) en `src/pjecz_hercules_query_api/config/setttings.py`.
 - Registrar esa fuente en `Settings.settings_customise_sources` con prioridad sobre las variables de entorno y `.env`.
 - Buscar en Secret Manager **todas** las propiedades de `Settings`.
 - Detectar Google Cloud por la variable de entorno `PROJECT_ID`.
@@ -88,7 +88,7 @@ Convenciones:
 
 Cada paso deja la API funcionando y se puede hacer commit de él por separado.
 
-1. Crear `SecretManagerSettingsSource` en `config/setttings.py`, sin registrarla todavía. Prueba manual: con `PROJECT_ID` sin definir, `python -c "from pjecz_hercules_api_key.config.setttings import Settings, SecretManagerSettingsSource; print(SecretManagerSettingsSource(Settings)())"` imprime `{}`.
+1. Crear `SecretManagerSettingsSource` en `config/setttings.py`, sin registrarla todavía. Prueba manual: con `PROJECT_ID` sin definir, `python -c "from pjecz_hercules_query_api.config.setttings import Settings, SecretManagerSettingsSource; print(SecretManagerSettingsSource(Settings)())"` imprime `{}`.
 2. Agregar `settings_customise_sources` a `Settings` con el orden de la tabla. Prueba manual: sin `PROJECT_ID`, `get_settings()` da los mismos valores que antes (desde `.env` y variables de entorno) y `arrancar` levanta la API.
 3. Agregar a `.env.example` un bloque comentado con `PROJECT_ID` y `SERVICE_PREFIX` que explique que solo se definen para leer de Secret Manager.
 4. Verificar en Google Cloud (operativo): los secretos necesarios existen con el prefijo, la cuenta de servicio de App Engine tiene `roles/secretmanager.secretAccessor`, y se despliega con `gcloud app deploy`.

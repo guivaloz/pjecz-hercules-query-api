@@ -108,7 +108,7 @@ then
     echo "   PYTHONPATH: ${PYTHONPATH}"
     echo
     echo "-- FastAPI 127.0.0.1:8000"
-    alias arrancar="uvicorn --host=127.0.0.1 --port 8000 --reload src.pjecz_hercules_api_key.main:app"
+    alias arrancar="uvicorn --host=127.0.0.1 --port 8000 --reload src.pjecz_hercules_query_api.main:app"
     echo "   arrancar"
     echo
     if [ -d tests ]

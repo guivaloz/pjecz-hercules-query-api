@@ -11,7 +11,7 @@
 
 **Dentro:**
 
-- Crear `src/pjecz_hercules_api_key/core/google_cloud_storage.py` con las funciones compartidas para obtener el `blob_name` y descargar el archivo.
+- Crear `src/pjecz_hercules_query_api/core/google_cloud_storage.py` con las funciones compartidas para obtener el `blob_name` y descargar el archivo.
 - Agregar el endpoint `GET /visualizar/{id}` en los routers `edictos`, `glosas`, `listas_de_acuerdos` y `sentencias`.
 - El `id` es parámetro de ruta, obligatorio y de tipo `int`.
 - Revisar el permiso `Permiso.VER` del módulo correspondiente, igual que el endpoint paginado.
@@ -101,7 +101,7 @@ Cada paso deja la API funcionando y se puede hacer commit de él por separado.
 
 ## Criterios de aceptación
 
-- [x] Existe `src/pjecz_hercules_api_key/core/google_cloud_storage.py` con `get_blob_name_from_url` y `get_file_from_gcs`.
+- [x] Existe `src/pjecz_hercules_query_api/core/google_cloud_storage.py` con `get_blob_name_from_url` y `get_file_from_gcs`.
 - [x] `get_blob_name_from_url("b", "https://storage.googleapis.com/b/x/y%20z.pdf")` regresa `"x/y z.pdf"`.
 - [x] `get_blob_name_from_url("b", "https://storage.googleapis.com/otro/x.pdf")` lanza `HTTPException` con 404.
 - [x] Solo cambiaron los 4 routers de la tabla y el nuevo `core/google_cloud_storage.py` (`git diff --stat` lo confirma).
