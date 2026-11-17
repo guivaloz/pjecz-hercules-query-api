@@ -44,5 +44,6 @@ class TestUsuarios(unittest.TestCase):
             self.assertEqual("apellido_materno" in item, True)
             self.assertEqual("puesto" in item, True)
 
+
 if __name__ == "__main__":
     unittest.main()
