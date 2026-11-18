@@ -54,7 +54,7 @@ from pjecz_hercules_query_api.routers.soportes_tickets import soportes_tickets
 from pjecz_hercules_query_api.routers.usuarios import usuarios
 from pjecz_hercules_query_api.routers.usuarios_roles import usuarios_roles
 
-app = FastAPI(root_path="/api/v5")
+app = FastAPI()
 
 # Configurar CORS para permitir peticiones del frontend
 app.add_middleware(
